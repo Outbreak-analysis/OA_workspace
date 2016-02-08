@@ -14,15 +14,8 @@ include init.mk
 
 ##################################################################
 
-## Cloning
+### Content
 
-clone:
-	git clone $(prejectrepos)/$(target).git
-	$(MAKE) $(target)/stuff.mk
-
-
-$(projectdirs):
-	$(MAKE) target=$@ clone
 
 ######################################################################
 
@@ -34,5 +27,5 @@ $(projectdirs):
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 
-# -include $(ms)/wrapR.mk
-# -include $(ms)/oldlatex.mk
+-include $(ms)/wrapR.mk
+-include $(ms)/oldlatex.mk
