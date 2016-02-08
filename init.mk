@@ -13,7 +13,7 @@ projectdirs = who_ebola Ebola_presentation tmp_earlyForecast tmp_data tmp_SEIRF 
 
 Makefile: $(ms) 
 
-all:	  $(projectdirs)
+all:	  $(ms) $(projectdirs)
 
 $(ms):
 	cd $(dir $(ms)) && git clone $(msrepo)/$(notdir $(ms)).git
