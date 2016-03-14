@@ -27,7 +27,7 @@ $(gitdirs):
 	cd $(gitroot) && git clone $(projectrepo)/$(notdir $@).git
 
 links: 
-	$(LINK) $(gitdirs) .
+	$(link) $(gitdirs) .
 
 $(gitroot):
 	mkdir $@
