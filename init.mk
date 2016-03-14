@@ -11,19 +11,23 @@ export ms = $(gitroot)/makestuff
 
 projectdirs = who_ebola Ebola_presentation tmp_earlyForecast tmp_data tmp_SEIFR Zika WA_Ebola_Outbreak hybrid_fitting OA_Planning
 
+gitdirs = $(projectdirs:%=$(gitroot)/%)
+
 Makefile: $(ms) 
 
-all:	  $(ms) $(projectdirs)
+all: $(ms) $(gitdirs) $(projectdirs)
 
 $(ms):
 	cd $(dir $(ms)) && git clone $(msrepo)/$(notdir $(ms)).git
 
-$(projectdirs): local.mk
-	cd $(gitroot) && git clone $(projectrepo)/$(notdir $@).git
-	cp local.mk $@
-
 local.mk:
 	echo gitroot = $(shell pwd) > $@
+
+$(gitdirs): 
+	cd $(gitroot) && git clone $(projectrepo)/$(notdir $@).git
+
+$(projectdirs):
+	$(LINK) $(gitroot)/$@ .
 
 $(gitroot):
 	mkdir $@
