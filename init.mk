@@ -15,7 +15,7 @@ gitdirs = $(projectdirs:%=$(gitroot)/%)
 
 Makefile: $(ms) 
 
-all: $(ms) $(gitdirs) $(projectdirs)
+all: $(ms) $(gitdirs)
 
 $(ms):
 	cd $(dir $(ms)) && git clone $(msrepo)/$(notdir $(ms)).git
@@ -26,8 +26,8 @@ local.mk:
 $(gitdirs): 
 	cd $(gitroot) && git clone $(projectrepo)/$(notdir $@).git
 
-$(projectdirs):
-	$(LINK) $(gitroot)/$@ .
+links: 
+	$(LINK) $(gitdirs) .
 
 $(gitroot):
 	mkdir $@
