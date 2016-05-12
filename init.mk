@@ -9,7 +9,7 @@ export ms = $(gitroot)/makestuff
 export ms = $(gitroot)/makestuff
 -include $(ms)/os.mk
 
-projectdirs = who_ebola Ebola_presentation tmp_earlyForecast tmp_data tmp_SEIFR Zika WA_Ebola_Outbreak hybrid_fitting OA_Planning
+projectdirs = who_ebola Ebola_presentation tmp_earlyForecast tmp_data tmp_SEIFR Zika WA_Ebola_Outbreak hybrid_fitting OA_Planning factorialtemplate
 
 gitdirs = $(projectdirs:%=$(gitroot)/%)
 
